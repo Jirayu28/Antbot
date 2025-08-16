@@ -1,0 +1,22 @@
+[1.027s] Invoking command in '/home/pakorn/antbot_ws/src/antbot_drive_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pakorn/antbot_ws/build/antbot_drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/antbot_drive_controller build --build-base /home/pakorn/antbot_ws/build/antbot_drive_controller/build install --record /home/pakorn/antbot_ws/build/antbot_drive_controller/install.log --single-version-externally-managed install_data
+[1.348s] running egg_info
+[1.374s] writing ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/PKG-INFO
+[1.375s] writing dependency_links to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/dependency_links.txt
+[1.376s] writing entry points to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/entry_points.txt
+[1.376s] writing requirements to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/requires.txt
+[1.376s] writing top-level names to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/top_level.txt
+[1.423s] reading manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+[1.424s] writing manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+[1.425s] running build
+[1.425s] running build_py
+[1.425s] running install
+[1.431s] running install_lib
+[1.454s] running install_data
+[1.454s] running install_egg_info
+[1.477s] removing '/home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller-0.0.1-py3.12.egg-info' (and everything under it)
+[1.478s] Copying ../../build/antbot_drive_controller/antbot_drive_controller.egg-info to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller-0.0.1-py3.12.egg-info
+[1.479s] running install_scripts
+[1.637s] Installing cmd_vel_to_stamped script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+[1.638s] Installing teleop_keyboard script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+[1.638s] writing list of installed files to '/home/pakorn/antbot_ws/build/antbot_drive_controller/install.log'
+[1.679s] Invoked command in '/home/pakorn/antbot_ws/src/antbot_drive_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pakorn/antbot_ws/build/antbot_drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/antbot_drive_controller build --build-base /home/pakorn/antbot_ws/build/antbot_drive_controller/build install --record /home/pakorn/antbot_ws/build/antbot_drive_controller/install.log --single-version-externally-managed install_data

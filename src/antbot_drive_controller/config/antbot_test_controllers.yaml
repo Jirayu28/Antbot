@@ -1,0 +1,22 @@
+# antbot_test_controllers.yaml
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # คุมพวงมาลัย (ตำแหน่ง)
+    steering_position:
+      type: position_controllers/JointPositionController
+      joint: steering_joint
+      command_interfaces: [position]
+      state_interfaces: [position, velocity]
+
+    # คุมความเร็วล้อหน้า (ความเร็วเชิงมุมของข้อต่อ)
+    drive_velocity:
+      type: velocity_controllers/JointGroupVelocityController
+      joints: [front_wheel_joint]
+      command_interfaces: [velocity]
+      state_interfaces: [position, velocity]

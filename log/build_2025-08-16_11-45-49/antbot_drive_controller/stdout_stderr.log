@@ -1,0 +1,21 @@
+running egg_info
+writing ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/entry_points.txt
+writing requirements to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/requires.txt
+writing top-level names to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/top_level.txt
+reading manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying config/tricycle_controller.yaml -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/config
+running install_egg_info
+removing '/home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller-0.0.1-py3.12.egg-info' (and everything under it)
+Copying ../../build/antbot_drive_controller/antbot_drive_controller.egg-info to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller-0.0.1-py3.12.egg-info
+running install_scripts
+Installing cmd_vel_to_stamped script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+Installing teleop_keyboard script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+writing list of installed files to '/home/pakorn/antbot_ws/build/antbot_drive_controller/install.log'

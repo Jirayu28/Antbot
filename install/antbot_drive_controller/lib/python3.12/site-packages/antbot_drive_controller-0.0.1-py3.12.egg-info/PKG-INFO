@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: antbot-drive-controller
+Version: 0.0.1
+Summary: Teleop + controller bringup for AntBot
+Maintainer: pakorn
+Maintainer-email: titlepakornza@gmail.com

@@ -1,0 +1,62 @@
+[0.025s] Invoking command in '/home/pakorn/antbot_ws/build/antbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pakorn/antbot_ws/install/antbot_drive_controller:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pakorn/antbot_ws/src/antbot_description -DCMAKE_INSTALL_PREFIX=/home/pakorn/antbot_ws/install/antbot_description
+[0.101s] -- The C compiler identification is GNU 13.3.0
+[0.175s] -- The CXX compiler identification is GNU 13.3.0
+[0.197s] -- Detecting C compiler ABI info
+[0.333s] -- Detecting C compiler ABI info - done
+[0.345s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.345s] -- Detecting C compile features
+[0.346s] -- Detecting C compile features - done
+[0.358s] -- Detecting CXX compiler ABI info
+[0.518s] -- Detecting CXX compiler ABI info - done
+[0.529s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.529s] -- Detecting CXX compile features
+[0.530s] -- Detecting CXX compile features - done
+[0.541s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.776s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.988s] -- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.163s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.163s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.165s] -- Added test 'lint_cmake' to check CMake code style
+[1.167s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.170s] -- Added test 'xmllint' to check XML markup files
+[1.173s] -- Configuring done (1.1s)
+[1.178s] -- Generating done (0.0s)
+[1.180s] -- Build files have been written to: /home/pakorn/antbot_ws/build/antbot_description
+[1.188s] Invoked command in '/home/pakorn/antbot_ws/build/antbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pakorn/antbot_ws/install/antbot_drive_controller:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pakorn/antbot_ws/src/antbot_description -DCMAKE_INSTALL_PREFIX=/home/pakorn/antbot_ws/install/antbot_description
+[1.190s] Invoking command in '/home/pakorn/antbot_ws/build/antbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pakorn/antbot_ws/install/antbot_drive_controller:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pakorn/antbot_ws/build/antbot_description -- -j12 -l12
+[1.251s] Invoked command in '/home/pakorn/antbot_ws/build/antbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pakorn/antbot_ws/install/antbot_drive_controller:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pakorn/antbot_ws/build/antbot_description -- -j12 -l12
+[1.267s] Invoking command in '/home/pakorn/antbot_ws/build/antbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pakorn/antbot_ws/install/antbot_drive_controller:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pakorn/antbot_ws/build/antbot_description
+[1.279s] -- Install configuration: ""
+[1.279s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/launch
+[1.280s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/launch/gz_sim.launch.py
+[1.280s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/launch/display.launch.py
+[1.280s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes
+[1.280s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/wheel_front_frame.stl
+[1.297s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/pillar.stl
+[1.301s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/omron.stl
+[1.301s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/wheel_front.stl
+[1.302s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/wheel_rear.stl
+[1.307s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/wheel_front_centered.stl
+[1.308s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/wheel_rear_centered_clean.stl
+[1.308s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/lidar.stl
+[1.309s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/antbot_base.stl
+[1.359s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/worlds
+[1.359s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/worlds/empty.sdf
+[1.359s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/urdf
+[1.359s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/urdf/antbot.urdf.xacro
+[1.359s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/ament_index/resource_index/package_run_dependencies/antbot_description
+[1.360s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/ament_index/resource_index/parent_prefix_path/antbot_description
+[1.360s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/environment/ament_prefix_path.sh
+[1.360s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/environment/ament_prefix_path.dsv
+[1.360s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/environment/path.sh
+[1.361s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/environment/path.dsv
+[1.361s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/local_setup.bash
+[1.361s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/local_setup.sh
+[1.361s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/local_setup.zsh
+[1.361s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/local_setup.dsv
+[1.362s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/package.dsv
+[1.362s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/ament_index/resource_index/packages/antbot_description
+[1.362s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/cmake/antbot_descriptionConfig.cmake
+[1.362s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/cmake/antbot_descriptionConfig-version.cmake
+[1.362s] -- Installing: /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/package.xml
+[1.365s] Invoked command in '/home/pakorn/antbot_ws/build/antbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pakorn/antbot_ws/install/antbot_drive_controller:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pakorn/antbot_ws/build/antbot_description

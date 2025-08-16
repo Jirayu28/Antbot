@@ -1,0 +1,42 @@
+[1.047s] Invoking command in '/home/pakorn/antbot_ws/src/antbot_drive_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pakorn/antbot_ws/build/antbot_drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/antbot_drive_controller build --build-base /home/pakorn/antbot_ws/build/antbot_drive_controller/build install --record /home/pakorn/antbot_ws/build/antbot_drive_controller/install.log --single-version-externally-managed install_data
+[1.408s] running egg_info
+[1.408s] creating ../../build/antbot_drive_controller/antbot_drive_controller.egg-info
+[1.433s] writing ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/PKG-INFO
+[1.434s] writing dependency_links to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/dependency_links.txt
+[1.434s] writing entry points to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/entry_points.txt
+[1.434s] writing requirements to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/requires.txt
+[1.434s] writing top-level names to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/top_level.txt
+[1.435s] writing manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+[1.485s] reading manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+[1.486s] writing manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+[1.486s] running build
+[1.487s] running build_py
+[1.487s] creating /home/pakorn/antbot_ws/build/antbot_drive_controller/build
+[1.487s] creating /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib
+[1.487s] creating /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller
+[1.487s] copying antbot_drive_controller/cmd_vel_to_stamped.py -> /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller
+[1.487s] copying antbot_drive_controller/__init__.py -> /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller
+[1.488s] running install
+[1.494s] running install_lib
+[1.520s] creating /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller
+[1.521s] copying /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller/cmd_vel_to_stamped.py -> /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller
+[1.521s] copying /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller/__init__.py -> /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller
+[1.521s] byte-compiling /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller/cmd_vel_to_stamped.py to cmd_vel_to_stamped.cpython-312.pyc
+[1.522s] byte-compiling /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller/__init__.py to __init__.cpython-312.pyc
+[1.522s] running install_data
+[1.522s] creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index
+[1.523s] creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index/resource_index
+[1.523s] creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index/resource_index/packages
+[1.523s] copying resource/antbot_drive_controller -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index/resource_index/packages
+[1.523s] copying package.xml -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller
+[1.523s] creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/config
+[1.524s] copying config/tricycle_controller.yaml -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/config
+[1.524s] creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/launch
+[1.524s] copying launch/bringup.launch.py -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/launch
+[1.525s] running install_egg_info
+[1.549s] Copying ../../build/antbot_drive_controller/antbot_drive_controller.egg-info to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller-0.0.1-py3.12.egg-info
+[1.550s] running install_scripts
+[1.742s] Installing cmd_vel_to_stamped script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+[1.742s] Installing teleop_keyboard script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+[1.743s] writing list of installed files to '/home/pakorn/antbot_ws/build/antbot_drive_controller/install.log'
+[1.822s] Invoked command in '/home/pakorn/antbot_ws/src/antbot_drive_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pakorn/antbot_ws/build/antbot_drive_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/antbot_drive_controller build --build-base /home/pakorn/antbot_ws/build/antbot_drive_controller/build install --record /home/pakorn/antbot_ws/build/antbot_drive_controller/install.log --single-version-externally-managed install_data

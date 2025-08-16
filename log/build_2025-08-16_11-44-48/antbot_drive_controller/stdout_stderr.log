@@ -1,0 +1,40 @@
+running egg_info
+creating ../../build/antbot_drive_controller/antbot_drive_controller.egg-info
+writing ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/entry_points.txt
+writing requirements to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/requires.txt
+writing top-level names to ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/top_level.txt
+writing manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/antbot_drive_controller/antbot_drive_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pakorn/antbot_ws/build/antbot_drive_controller/build
+creating /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib
+creating /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller
+copying antbot_drive_controller/cmd_vel_to_stamped.py -> /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller
+copying antbot_drive_controller/__init__.py -> /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller
+running install
+running install_lib
+creating /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller
+copying /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller/cmd_vel_to_stamped.py -> /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller
+copying /home/pakorn/antbot_ws/build/antbot_drive_controller/build/lib/antbot_drive_controller/__init__.py -> /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller
+byte-compiling /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller/cmd_vel_to_stamped.py to cmd_vel_to_stamped.cpython-312.pyc
+byte-compiling /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index
+creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index/resource_index
+creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index/resource_index/packages
+copying resource/antbot_drive_controller -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller
+creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/config
+copying config/tricycle_controller.yaml -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/config
+creating /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/launch
+copying launch/bringup.launch.py -> /home/pakorn/antbot_ws/install/antbot_drive_controller/share/antbot_drive_controller/launch
+running install_egg_info
+Copying ../../build/antbot_drive_controller/antbot_drive_controller.egg-info to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/python3.12/site-packages/antbot_drive_controller-0.0.1-py3.12.egg-info
+running install_scripts
+Installing cmd_vel_to_stamped script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+Installing teleop_keyboard script to /home/pakorn/antbot_ws/install/antbot_drive_controller/lib/antbot_drive_controller
+writing list of installed files to '/home/pakorn/antbot_ws/build/antbot_drive_controller/install.log'

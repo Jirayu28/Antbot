@@ -1,0 +1,32 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100   # หรือ 1000 ก็ได้ ถ้าอยากให้เร็วขึ้น
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    tricycle_controller:
+      # อย่าตั้ง type ซ้ำในไฟล์นี้ก็ได้ แต่ถ้าจะตั้ง ให้เป็นชนิดที่ถูกต้อง
+      type: tricycle_controller/TricycleController
+
+tricycle_controller:
+  ros__parameters:
+    # --- ชื่อต่อไปนี้ "ต้อง" ตรงตามเอกสารของ TricycleController ---
+    traction_joint_name: "front_wheel_joint"   # ขับด้วยล้อหน้า (velocity command)
+    steering_joint_name: "steering_joint"      # บังคับเลี้ยว (position command)
+
+    wheel_radius: 0.05                         # รัศมีล้อที่ใช้ “ขับ”
+    wheelbase: 0.45                            # ระยะล้อหน้า ↔ เพลาหลัง
+
+    # ตัวเลือกที่มีในเอกสาร (ใส่เท่าที่จำเป็น เพื่อลดโอกาสพลาด)
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    enable_odom_tf: false
+    open_loop: false
+
+    # timeout **หน่วยเป็นมิลลิวินาที**
+    cmd_vel_timeout: 500
+
+    # ค่า covariance ปล่อยค่า default ได้ ถ้ายังไม่อยากยุ่ง:
+    # pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    # twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]

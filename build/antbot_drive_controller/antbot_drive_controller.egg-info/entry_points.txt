@@ -1,3 +1,2 @@
 [console_scripts]
 cmd_vel_to_stamped = antbot_drive_controller.cmd_vel_to_stamped:main
-teleop_keyboard = antbot_drive_controller.teleop_keyboard:main

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Generic LIDAR macro for AntBot -->
+  <xacro:macro name="antbot_lidar" params="
+      parent:=base_link
+      z:=0.15
+
+      topic:=/scan
+      frame_id:=lidar_link
+      update_rate:=10
+      visualize:=true
+
+      samples:=360
+      resolution:=1
+      min_angle:=-3.14159
+      max_angle:=3.14159
+      range_min:=0.2
+      range_max:=12.0
+      noise_stddev:=0.01
+
+      body_radius:=0.0508
+      body_length:=0.055
+      stripe_radius:=0.053
+      stripe_length:=0.006
+
+      mass:=0.125
+      ixx:=0.001
+      iyy:=0.001
+      izz:=0.001
+
+      body_rgba:='0.05 0.05 0.05 1.0'
+      stripe_rgba:='0.0 0.9 0.3 1.0'
+    ">
+
+    <link name="${frame_id}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="${mass}"/>
+        <inertia ixx="${ixx}" ixy="0" ixz="0" iyy="${iyy}" iyz="0" izz="${izz}"/>
+      </inertial>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="${body_radius}" length="${body_length}"/>
+        </geometry>
+      </collision>
+
+      <visual name="lidar_body">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="${body_radius}" length="${body_length}"/>
+        </geometry>
+        <material name="lidar_dark">
+          <color rgba="${body_rgba}"/>
+        </material>
+      </visual>
+
+      <visual name="lidar_stripe">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="${stripe_radius}" length="${stripe_length}"/>
+        </geometry>
+        <material name="lidar_green">
+          <color rgba="${stripe_rgba}"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="${frame_id}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child  link="${frame_id}"/>
+      <origin xyz="0 0 ${z}" rpy="0 0 0"/>
+    </joint>
+
+    <gazebo reference="${frame_id}">
+      <sensor name="lidar" type="gpu_lidar">
+        <always_on>true</always_on>
+        <visualize>${visualize}</visualize>
+        <update_rate>${update_rate}</update_rate>
+        <topic>${topic}</topic>
+        <gz_frame_id>${frame_id}</gz_frame_id>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>${samples}</samples>
+              <resolution>${resolution}</resolution>
+              <min_angle>${min_angle}</min_angle>
+              <max_angle>${max_angle}</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>${range_min}</min>
+            <max>${range_max}</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>${noise_stddev}</stddev>
+          </noise>
+        </ray>
+      </sensor>
+
+      <material>
+        <ambient>0.05 0.05 0.05 1</ambient>
+        <diffuse>0.05 0.05 0.05 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 1</emissive>
+      </material>
+    </gazebo>
+
+  </xacro:macro>
+</robot>
+

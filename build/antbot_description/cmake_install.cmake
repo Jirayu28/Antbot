@@ -47,15 +47,19 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description/urdf" TYPE DIRECTORY FILES "/home/pakorn/antbot_ws/src/antbot_description/urdf/" FILES_MATCHING REGEX "/[^/]*\\.xacro$" REGEX "/[^/]*\\.urdf$")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description/meshes" TYPE DIRECTORY FILES "/home/pakorn/antbot_ws/src/antbot_description/meshes/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description/worlds" TYPE DIRECTORY FILES "/home/pakorn/antbot_ws/src/antbot_description/worlds/" FILES_MATCHING REGEX "/[^/]*\\.sdf$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description/worlds" TYPE DIRECTORY FILES "/home/pakorn/antbot_ws/src/antbot_description/worlds/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description/urdf" TYPE DIRECTORY FILES "/home/pakorn/antbot_ws/src/antbot_description/urdf/" FILES_MATCHING REGEX "/[^/]*\\.xacro$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description/rviz" TYPE DIRECTORY FILES "/home/pakorn/antbot_ws/src/antbot_description/rviz/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

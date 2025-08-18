@@ -7,8 +7,10 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     pkg = get_package_share_directory('antbot_drive_controller')
+
     mode = LaunchConfiguration('mode')
 
+    # เงื่อนไขที่ถูกต้อง: ใช้ PythonExpression เพื่อให้ IfCondition ได้ Substitution
     keyboard_cond = IfCondition(PythonExpression(['"', mode, '" == "keyboard"']))
     joy_cond      = IfCondition(PythonExpression(['"', mode, '" == "joy"']))
 
@@ -17,7 +19,7 @@ def generate_launch_description():
         executable='teleop_twist_keyboard',
         name='keyboard_teleop',
         output='screen',
-        emulate_tty=True,
+        emulate_tty=True,                         # ป้องกัน termios error
         remappings=[('cmd_vel', '/keyboard/cmd_vel')],
         condition=keyboard_cond
     )
@@ -40,23 +42,21 @@ def generate_launch_description():
         condition=joy_cond
     )
 
-    # รวมหลายแหล่ง → ออกที่ /cmd_vel_raw (Twist)
     twist_mux = Node(
         package='twist_mux',
         executable='twist_mux',
         name='twist_mux',
         output='screen',
-        parameters=[PathJoinSubstitution([pkg, 'config', 'twist_mux.yaml'])],
-        remappings=[('cmd_vel', '/cmd_vel_raw')]
+        parameters=[PathJoinSubstitution([pkg, 'config', 'twist_mux.yaml'])]
+        # ค่า default: ส่งออก /cmd_vel
     )
 
-    # แปลง Twist → TwistStamped และส่งออกชื่อ /cmd_vel
     adapter = Node(
         package='antbot_drive_controller',
         executable='cmd_vel_to_stamped',
         name='cmd_vel_to_stamped',
-        output='screen',
-        parameters=[{'in_topic': '/cmd_vel_raw', 'out_topic': '/cmd_vel'}]
+        output='screen'
+        # แปลง /cmd_vel (Twist) -> /tricycle_controller/cmd_vel (TwistStamped)
     )
 
     return LaunchDescription([

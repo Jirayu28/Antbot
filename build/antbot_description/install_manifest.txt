@@ -1,5 +1,7 @@
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/launch/gz_sim.launch.py
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/launch/display.launch.py
+/home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/urdf/antbot.urdf.xacro
+/home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/urdf/sensors/antbot_lidar.xacro
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/wheel_front_frame.stl
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/pillar.stl
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/omron.stl
@@ -10,7 +12,7 @@
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/lidar.stl
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/meshes/antbot_base.stl
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/worlds/empty.sdf
-/home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/urdf/antbot.urdf.xacro
+/home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/rviz/antbot.rviz
 /home/pakorn/antbot_ws/install/antbot_description/share/ament_index/resource_index/package_run_dependencies/antbot_description
 /home/pakorn/antbot_ws/install/antbot_description/share/ament_index/resource_index/parent_prefix_path/antbot_description
 /home/pakorn/antbot_ws/install/antbot_description/share/antbot_description/environment/ament_prefix_path.sh

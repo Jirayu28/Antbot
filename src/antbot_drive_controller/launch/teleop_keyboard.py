@@ -54,6 +54,7 @@ class Teleop(Node):
         msg.linear.x = self.lin
         msg.angular.z = self.ang
         self.pub.publish(msg)
+        
 
 def main():
     rclpy.init()

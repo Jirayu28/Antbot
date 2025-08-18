@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="antbot">
 
+  <!-- ===== Include: Lidar macro ===== -->
+  <xacro:include filename="$(find antbot_description)/urdf/sensors/antbot_lidar.xacro"/>
+
   <!-- ===== Params ===== -->
   <!-- ยกฐานจากพื้นเพิ่ม เพื่อลดการลากพื้น -->
   <xacro:property name="base_clearance" value="0.03"/>  <!-- ~3 ซม. -->
@@ -292,28 +295,20 @@
     <origin xyz="0 0 0.12"/>
   </joint>
 
-  <link name="lidar_link">
-    <visual>
-      <origin xyz="0 0 0.02"/>
-      <geometry>
-        <mesh filename="${mesh_path}/lidar.stl"/>
-      </geometry>
-      <material name="red">
-        <color rgba="0.9 0.1 0.1 1"/>
-      </material>
-    </visual>
-    <inertial>
-      <mass value="${lidar_mass}"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
-    </inertial>
-  </link>
-
-  <joint name="lidar_joint" type="fixed">
-    <parent link="pillar_link"/>
-    <child  link="lidar_link"/>
-    <origin xyz="0 0 0.1"/>
-  </joint>
+  <!-- ===== LIDAR (แทนที่บล็อก mesh เดิมด้วย macro ที่มี sensor) ===== -->
+  <xacro:antbot_lidar
+      parent="pillar_link"
+      z="0.10"
+      topic="/scan"
+      frame_id="lidar_link"
+      update_rate="10"
+      samples="360"
+      resolution="1"
+      min_angle="-3.14159"
+      max_angle="3.14159"
+      range_min="0.2"
+      range_max="12.0"
+      noise_stddev="0.01"/>
 
   <link name="omron_link">
     <visual>

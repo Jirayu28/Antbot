@@ -27,14 +27,18 @@ ros2 launch antbot_navigation nav2.launch.py
 ---------------------------------------------------
 
 คียบอร์ด
+
 source ~/antbot_ws/install/setup.bash
+
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ไว้เก็บแมพ
+
 source install/setup.bash
+
 ros2 launch antbot_navigation slam.launch.py
 
-
 เซฟแมพ
+
 ros2 run nav2_map_server map_saver_cli -f ~/antbot_ws/src/antbot_maps/maps/my_world
 

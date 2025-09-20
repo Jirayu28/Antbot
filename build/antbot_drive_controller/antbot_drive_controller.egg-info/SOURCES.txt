@@ -10,10 +10,12 @@ setup.py
 ../../build/antbot_drive_controller/antbot_drive_controller.egg-info/zip-safe
 antbot_drive_controller/__init__.py
 antbot_drive_controller/cmd_vel_to_stamped.py
+antbot_drive_controller/imu_frame_relay.py
+antbot_drive_controller/scan_to_range.py
 config/teleop_joy.yaml
 config/tricycle_controller.yaml
 config/twist_mux.yaml
-launch/bringup.launch.py
+launch/slam.launch.py
 launch/teleop_all.launch.py
 resource/antbot_drive_controller
 test/test_copyright.py

@@ -5,7 +5,7 @@
   <version>0.0.1</version>
   <description>Teleop + mux + controller bringup for AntBot</description>
 
-  <maintainer email="titlepakornza@gmail.com">pakorn</maintainer>
+  <maintainer email="jirayu.pkd@gmail.com">jirayu</maintainer>
   <license>MIT</license>
 
   <!-- แพ็กเกจ Python ต้องมี buildtool นี้ -->

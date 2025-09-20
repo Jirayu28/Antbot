@@ -63,6 +63,17 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/antbot_description" TYPE FILE FILES
+    "/home/pakorn/antbot_ws/src/antbot_description/model.sdf"
+    "/home/pakorn/antbot_ws/src/antbot_description/model.config"
+    )
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/antbot_description" TYPE PROGRAM FILES "/home/pakorn/antbot_ws/src/antbot_description/scripts/laser_frame_fix.py")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/pakorn/antbot_ws/build/antbot_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/antbot_description")
 endif()
 

@@ -1,0 +1,52 @@
+slam_toolbox:
+  ros__parameters:
+    use_sim_time: true
+
+    # ==== Frames ====
+    map_frame: map
+    odom_frame: odom
+    base_frame: base_link
+
+    # ==== Laser (ใช้ที่กรองแล้ว) ====
+    scan_topic: /scan_filtered
+    max_laser_range: 8.0
+
+    # เวลาการเผยแพร่ TF/บัฟเฟอร์
+    transform_publish_period: 0.02
+    transform_timeout: 0.2
+    tf_buffer_duration: 30.0
+
+    # ==== Mode ====
+    mode: mapping
+
+    # ทำให้กริดคมขึ้น (ถ้าเครื่องไหว)
+    resolution: 0.03
+
+    # ควบคุมคีย์เฟรมให้สม่ำเสมอ
+    minimum_time_interval: 0.10
+    minimum_travel_distance: 0.12      # ~12ซม.
+    minimum_travel_heading: 0.087      # ~5°
+
+    # Buffer/Matching
+    use_scan_matching: true
+    use_smoothing: true
+    use_scan_barycenter: true
+    scan_buffer_size: 50
+    scan_buffer_maximum_scan_distance: 8.0
+    link_scan_maximum_distance: 2.0
+
+    # Loop closing ช่วยล็อกภาพรวม
+    do_loop_closing: true
+    loop_search_maximum_distance: 3.0
+    loop_search_space_dimension: 6.0
+    loop_search_space_resolution: 0.05
+    loop_search_space_smear_deviation: 0.03
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 2.0
+    loop_match_minimum_response_coarse: 0.45
+    loop_match_minimum_response_fine: 0.52
+
+    # ให้กริดทึบขึ้นเล็กน้อย
+    occupancy_threshold: 0.2
+
+    enable_interactive_mode: false

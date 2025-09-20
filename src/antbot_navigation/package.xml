@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>antbot_navigation</name>
+  <version>0.0.1</version>
+  <description>Navigation and SLAM configs/launch for AntBot</description>
+  <maintainer email="jirayu.pkd@gmail.com">jirayu</maintainer>
+  <license>MIT</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Nav2 core servers -->
+  <exec_depend>nav2_map_server</exec_depend>
+  <exec_depend>nav2_amcl</exec_depend>
+  <exec_depend>nav2_planner</exec_depend>
+  <exec_depend>nav2_controller</exec_depend>
+  <exec_depend>nav2_smoother</exec_depend>
+  <exec_depend>nav2_bt_navigator</exec_depend>
+  <exec_depend>nav2_waypoint_follower</exec_depend>
+  <exec_depend>nav2_lifecycle_manager</exec_depend>
+
+  <!-- Plugins / layers used in your YAML -->
+  <exec_depend>nav2_costmap_2d</exec_depend>
+  <exec_depend>nav2_regulated_pure_pursuit_controller</exec_depend>
+  <exec_depend>nav2_smac_planner</exec_depend>
+  <exec_depend>nav2_behaviors</exec_depend>
+
+  <!-- EKF and tools -->
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+
+  <!-- ✅ เพิ่มตามที่ใช้จริง -->
+  <exec_depend>tf2_ros</exec_depend>                 <!-- ใช้ใน publish_initial_pose.py -->
+  <exec_depend>robot_state_publisher</exec_depend>   <!-- ใช้ใน launch -->
+  <exec_depend>xacro</exec_depend>                   <!-- ใช้แปลง URDF ใน launch -->
+  <exec_depend>rclpy</exec_depend>                   <!-- สคริปต์ Python -->
+  <exec_depend>geometry_msgs</exec_depend>           <!-- PoseWithCovarianceStamped -->
+  <exec_depend>antbot_description</exec_depend>      <!-- ดึง antbot.urdf.xacro ผ่าน FindPackageShare -->
+
+  <!-- หากใช้ SLAM ด้วย -->
+  <exec_depend>slam_toolbox</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

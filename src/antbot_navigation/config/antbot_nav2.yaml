@@ -1,0 +1,211 @@
+amcl:
+  ros__parameters:
+    use_sim_time: true
+
+    # ==== Frames (ต้องตรงกับ TF หุ่น) ====
+    global_frame_id: map
+    odom_frame_id: odom
+    base_frame_id: base_link
+
+    # ==== Laser / Scan ====
+    scan_topic: /scan
+    laser_frame_id: lidar_sensor_link
+    laser_model_type: likelihood_field
+    do_beamskip: true
+    beam_skip_distance: 0.5
+    beam_skip_threshold: 0.3
+    # ค่าจูนเบื้องต้นให้จับแผนที่ได้ง่ายขึ้น
+    z_hit: 0.8
+    z_rand: 0.2
+    sigma_hit: 0.2
+    lambda_short: 0.1
+
+    # ==== Odom noise ====
+    alpha1: 0.05
+    alpha2: 0.05
+    alpha3: 0.05
+    alpha4: 0.05
+    alpha5: 0.05
+
+    # ==== Particle filter ====
+    min_particles: 500
+    max_particles: 2000
+
+    # ==== Update / Timing ====
+    update_min_d: 0.15
+    update_min_a: 0.15
+    resample_interval: 2
+    transform_tolerance: 0.7
+    tf_broadcast: true
+
+map_server:
+  ros__parameters:
+    use_sim_time: true
+    # yaml_filename จะถูกส่งผ่าน launch
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: true
+    odom_topic: /odometry/filtered 
+
+controller_server:
+  ros__parameters:
+    odom_topic: /odometry/filtered
+    use_sim_time: true
+
+    controller_plugins: ["FollowPath"]
+
+    # ใช้ Regulated Pure Pursuit (RPP)
+    FollowPath:
+      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+
+      # ความเร็ว/การมองเส้นทาง
+      desired_linear_vel: 0.30
+      min_lookahead_dist: 0.30
+      max_lookahead_dist: 0.90
+      lookahead_time: 1.5
+      use_velocity_scaled_lookahead_dist: true
+      transform_tolerance: 0.5
+      allow_reversing: false
+
+      # จำกัดความเร็วตามความโค้ง + เพดานเชิงมุม
+      regulate_turning_speed: true
+      max_angular_accel: 2.5
+      max_angular_vel: 2.0
+
+      # 🔧 สำคัญสำหรับรถล้อหน้าเลี้ยว
+      use_rotate_to_heading: false      # ไม่พยายามหมุนหัวกับที่
+      min_turning_radius: 0.77          # ปรับตามรถจริง (เริ่มที่ ~0.7–0.8 m)
+
+      # (ออปชัน) ลดอาการชะงักใกล้วัตถุ
+      regulate_linear_velocity: false
+      use_cost_regulated_linear_velocity_scale: false
+      # rotate_to_heading_angular_vel: 1.2  # ใช้ก็ต่อเมื่อเปิด rotate_to_heading
+
+    # Progress / Goal checker
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugin: "goal_checker"
+
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.5
+      movement_time_allowance: 10.0
+
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.60   # ผ่อนมุมเพื่อไม่จี้เป๊ะจนช้า
+      stateful: true
+
+planner_server:
+  ros__parameters:
+    use_sim_time: true
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner::NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+
+smoother_server:
+  ros__parameters:
+    use_sim_time: true
+    smoother_plugins: ["SimpleSmoother"]
+    SimpleSmoother:
+      plugin: "nav2_smoother::SimpleSmoother"
+
+behavior_server:
+  ros__parameters:
+    use_sim_time: true
+    odom_topic: /odometry/filtered
+    behaviors: ["spin", "backup", "drive_on_heading", "wait"]
+    spin:
+      plugin: "nav2_behaviors::Spin"
+    backup:
+      plugin: "nav2_behaviors::BackUp"
+    drive_on_heading:
+      plugin: "nav2_behaviors::DriveOnHeading"
+    wait:
+      plugin: "nav2_behaviors::Wait"
+
+waypoint_follower:
+  ros__parameters:
+    use_sim_time: true
+    plugin_lib_names: ["nav2_waypoint_follower::WaypointFollower"]
+
+global_costmap:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: map
+    robot_base_frame: base_link
+
+    # รูปร่างหุ่น (เลือกอย่างใดอย่างหนึ่ง: robot_radius หรือ footprint)
+    robot_radius: 0.28
+
+    track_unknown_space: true
+    resolution: 0.05
+    update_frequency: 5.0
+    publish_frequency: 2.0
+    transform_tolerance: 0.7
+    rolling_window: false
+
+    plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+
+    static_layer:
+      plugin: "nav2_costmap_2d::StaticLayer"
+      map_topic: map
+      subscribe_to_updates: true
+
+    obstacle_layer:
+      plugin: "nav2_costmap_2d::ObstacleLayer"
+      observation_sources: scan
+      scan:
+        topic: /scan
+        data_type: "LaserScan"
+        max_obstacle_height: 2.0
+        min_obstacle_height: 0.0
+        obstacle_range: 8.0
+        raytrace_range: 10.0
+        clearing: true
+        marking: true
+
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      inflation_radius: 0.6
+      cost_scaling_factor: 3.0
+
+local_costmap:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: odom
+    robot_base_frame: base_link
+
+    robot_radius: 0.28
+
+    rolling_window: true
+    width: 6.0
+    height: 6.0
+    resolution: 0.05
+    update_frequency: 10.0
+    publish_frequency: 5.0
+    transform_tolerance: 0.7
+
+    # local ไม่มี static_layer
+    plugins: ["obstacle_layer", "inflation_layer"]
+
+    obstacle_layer:
+      plugin: "nav2_costmap_2d::ObstacleLayer"
+      observation_sources: scan
+      scan:
+        topic: /scan
+        data_type: "LaserScan"
+        max_obstacle_height: 2.0
+        min_obstacle_height: 0.0
+        obstacle_range: 8.0
+        raytrace_range: 10.0
+        clearing: true
+        marking: true
+
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      inflation_radius: 0.6
+      cost_scaling_factor: 3.0

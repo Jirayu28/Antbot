@@ -12,6 +12,11 @@ install(
   DIRECTORY launch urdf meshes
   DESTINATION share/${PROJECT_NAME}/
 )
+
+install(DIRECTORY config
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)

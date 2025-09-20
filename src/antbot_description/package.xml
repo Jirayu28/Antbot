@@ -3,7 +3,7 @@
   <name>antbot_description</name>
   <version>0.0.1</version>
   <description>Antbot URDF and RViz launcher</description>
-  <maintainer email="titlepakornza@gmail.com">pakorn</maintainer>
+  <maintainer email="jirayu.pkd@gmail.com">jirayu</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
@@ -22,6 +22,10 @@
   <exec_depend>gz_ros2_control</exec_depend>
   <exec_depend>ros_gz_bridge</exec_depend>
   <exec_depend>ros_gz_sim</exec_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
   
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

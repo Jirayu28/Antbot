@@ -15,7 +15,9 @@ ros2 launch antbot_navigation localization.launch.py
 CMD4 รัน nav
 source install/setup.bash
 ros2 launch antbot_navigation nav2.launch.py
+
 ---------------------------------------------------
+
 คียบอร์ด
 source ~/antbot_ws/install/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard

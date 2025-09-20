@@ -1,6 +1,0 @@
-Metadata-Version: 2.1
-Name: antbot-drive-controller
-Version: 0.0.1
-Summary: Teleop + mux + Twist->TwistStamped bridge for Antbot
-Maintainer: pakorn
-Maintainer-email: titlepakornza@gmail.com

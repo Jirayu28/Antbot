@@ -1,2 +1,0 @@
-[console_scripts]
-cmd_vel_to_stamped = antbot_drive_controller.cmd_vel_to_stamped:main

@@ -2,7 +2,7 @@
 ที่ใช้
 CMD1 เปิด GZ sim, Rviz, spawn Robot, เรียก bridge
 source install/setup.bash
-ros2 launch antbot_description gz_rviz.launch.py
+ros2 launch antbot_description gz_rviz.launch.py	
 
 CMD2: (แปลง /cmd_vel → TwistStamped)
 source ~/antbot_ws/install/setup.bash

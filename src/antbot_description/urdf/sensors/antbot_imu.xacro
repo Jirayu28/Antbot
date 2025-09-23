@@ -46,13 +46,5 @@
       <origin xyz="${xyz_offset}" rpy="${rpy_offset}"/>
     </joint>
 
-    <gazebo reference="${prefix}${frame_id}">
-      <sensor name="${prefix}${frame_id}_sensor" type="imu">
-        <always_on>1</always_on>
-        <update_rate>${update_rate}</update_rate>
-        <visualize>false</visualize>
-        <topic>/imu</topic>
-      </sensor>
-    </gazebo>
   </xacro:macro>
 </robot>

@@ -3,7 +3,7 @@
   <name>antbot_description</name>
   <version>0.0.1</version>
   <description>Antbot URDF and RViz launcher</description>
-  <maintainer email="titlepakornza@gmail.com">pakorn</maintainer>
+  <maintainer email="titlejirayuza@gmail.com">jirayu</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

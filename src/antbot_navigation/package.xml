@@ -3,7 +3,7 @@
   <name>antbot_navigation</name>
   <version>0.0.1</version>
   <description>Navigation and SLAM configs/launch for AntBot</description>
-  <maintainer email="pakorn.pkd@gmail.com">pakorn</maintainer>
+  <maintainer email="jirayu.pkd@gmail.com">jirayu</maintainer>
   <license>MIT</license>
 
   <!-- Build system -->

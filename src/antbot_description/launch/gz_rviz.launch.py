@@ -9,6 +9,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node as RosNode
 import os
 
+
 def generate_launch_description():
     desc_share = get_package_share_directory('antbot_description')
     ctrl_share = get_package_share_directory('antbot_drive_controller')
@@ -71,7 +72,7 @@ def generate_launch_description():
     # Lidar (GZ -> ROS)
     scan_bridge = Node(
         package='ros_gz_bridge', executable='parameter_bridge', name='bridge_scan',
-        arguments=['/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'],
+        arguments=['/scan_raw@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'],
         output='screen'
     )
 
@@ -100,43 +101,11 @@ def generate_launch_description():
         output='screen'
     )
 
-
-    # TF alias (เดิม)
-    from launch_ros.actions import Node as RosNode
-    lidar_tf_alias = RosNode(
-        package='tf2_ros', executable='static_transform_publisher', name='lidar_tf_alias', output='screen',
-        arguments=['--frame-id','lidar_sensor_link',
-                  '--child-frame-id',f'{model_name}/base_link/lidar_sensor_link',
-                  '--x','0','--y','0','--z','0','--roll','0','--pitch','0','--yaw','0']
+    scan_fix = Node(
+        package='antbot_navigation', executable='scan_frame_fix.py',
+        name='scan_frame_fix', output='screen',
+        parameters=[{'target_frame': 'lidar_sensor_link'}]
     )
-    lidar_tf_alias_dummy = RosNode(
-        package='tf2_ros', executable='static_transform_publisher', name='lidar_tf_alias_dummy', output='screen',
-        arguments=['--frame-id','lidar_sensor_link',
-                  '--child-frame-id',f'{model_name}/base_dummy/lidar_sensor_link',
-                  '--x','0','--y','0','--z','0','--roll','0','--pitch','0','--yaw','0']
-    )
-    ultra_tf_alias = RosNode(
-        package='tf2_ros', executable='static_transform_publisher', name='ultrasonic_tf_alias', output='screen',
-        arguments=['--frame-id','ultrasonic_front_link',
-                  '--child-frame-id',f'{model_name}/base_link/ultrasonic_front_link',
-                  '--x','0','--y','0','--z','0','--roll','0','--pitch','0','--yaw','0']
-    )
-    ultra_tf_alias_dummy = RosNode(
-        package='tf2_ros', executable='static_transform_publisher', name='ultrasonic_tf_alias_dummy', output='screen',
-        arguments=['--frame-id','ultrasonic_front_link',
-                  '--child-frame-id',f'{model_name}/base_dummy/ultrasonic_front_link',
-                  '--x','0','--y','0','--z','0','--roll','0','--pitch','0','--yaw','0']
-    )
-    imu_tf_alias = RosNode(
-    package='tf2_ros', executable='static_transform_publisher',
-    name='imu_tf_alias', output='screen',
-    arguments=[
-        '--frame-id','imu_link',
-        '--child-frame-id',f'{model_name}/base_link/imu_link_sensor',
-        '--x','0','--y','0','--z','0',
-        '--roll','0','--pitch','0','--yaw','0'
-    ]
-)
 
     # Unpause physics
     unpause_world = ExecuteProcess(
@@ -214,7 +183,7 @@ def generate_launch_description():
 
         TimerAction(period=5.0, actions=[spawn_model]),
         TimerAction(period=6.0, actions=[rsp_node, clock_bridge, scan_bridge, imu_bridge, ultra_bridge, odom_bridge]),
-        TimerAction(period=6.2, actions=[lidar_tf_alias, lidar_tf_alias_dummy, ultra_tf_alias, ultra_tf_alias_dummy, imu_tf_alias]),
+        TimerAction(period=6.1, actions=[scan_fix]),
         TimerAction(period=6.5, actions=[unpause_world]),
 
         wait_cm, after_wait_spawn, after_tricycle_print,

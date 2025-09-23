@@ -61,7 +61,7 @@
   <link name="base_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 1.57079632679"/>
-      <geometry><mesh filename="${mesh_path}/antbot_base.stl"/></geometry>
+      <geometry><mesh filename="${mesh_path}/antbot_base1.stl"/></geometry>
       <material name="gray"><color rgba="0.6 0.6 0.6 1"/></material>
     </visual>
 
@@ -76,14 +76,24 @@
       ox="0" oy="0" oz="${base_size_z/2.0 + base_clearance}"/>
   </link>
 
+   <!-- จุดฉายลงพื้น: roll/pitch = 0 -->
+  <link name="base_footprint"/>
+
+  <!-- ยก base_link ลอยจากพื้นด้วย base_clearance (เช่น 0.03 m) -->
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child  link="base_link"/>
+    <!-- ถ้ามี property base_clearance อยู่แล้ว ใช้เลย -->
+    <origin xyz="0 0 ${base_clearance}" rpy="0 0 0"/>
+  </joint>
+
   <!-- ===== ติดตั้ง IMU ให้ลอยเหนือฐานเล็กน้อย ===== -->
   <xacro:antbot_imu
     parent="base_link"
     frame_id="imu_link"
-    xyz_offset="0 0 0.959"
+    xyz_offset="0.45 0 0.959"
     rpy_offset="0 0 0"
     update_rate="100.0"/>
-
   <!-- ===== Wheels ===== -->
   <link name="wheel_rear_left_link">
     <visual>
@@ -104,7 +114,7 @@
 
   <joint name="wheel_rear_left_joint" type="continuous">
     <parent link="base_link"/><child link="wheel_rear_left_link"/>
-    <origin xyz="-0.497 0.28 ${wheel_radius}" rpy="0 0 1.57079632679"/>
+    <origin xyz="-0.0025 0.29 ${wheel_radius}" rpy="0 0 1.57079632679"/>
     <axis xyz="1 0 0"/><dynamics damping="0.001" friction="0.0"/>
     <limit effort="80.0" velocity="120.0"/>
   </joint>
@@ -128,7 +138,7 @@
 
   <joint name="wheel_rear_right_joint" type="continuous">
     <parent link="base_link"/><child link="wheel_rear_right_link"/>
-    <origin xyz="-0.50 -0.23 ${wheel_radius}" rpy="0 0 1.57079632679"/>
+    <origin xyz="-0.0025 -0.23 ${wheel_radius}" rpy="0 0 1.57079632679"/>
     <axis xyz="1 0 0"/><dynamics damping="0.001" friction="0.0"/>
     <limit effort="80.0" velocity="120.0"/>
   </joint>
@@ -143,7 +153,7 @@
 
   <joint name="steering_joint" type="revolute">
     <parent link="base_link"/><child link="steering_link"/>
-    <origin xyz="0.035 0.11 ${wheel_radius}" rpy="0 0 1.57079632679"/>
+    <origin xyz="0.53 0.0025 ${wheel_radius}" rpy="0 0 1.57079632679"/>
     <axis xyz="0 0 1"/>
     <dynamics damping="2.0" friction="0.0"/> 
     <limit effort="8.0" velocity="1.8" lower="-0.62" upper="0.62"/>
@@ -151,7 +161,7 @@
 
   <link name="wheel_front_link">
     <visual>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0.028 0 0"/>
       <geometry><mesh filename="${mesh_path}/wheel_front_centered.stl"/></geometry>
       <material name="black"><color rgba="0.1 0.1 0.1 1"/></material>
     </visual>
@@ -168,7 +178,7 @@
 
   <joint name="front_wheel_joint" type="continuous">
     <parent link="steering_link"/><child link="wheel_front_link"/>
-    <origin xyz="-0.051 0.005 0" rpy="0 0 0"/>
+    <origin xyz="0 0.005 0" rpy="0 0 0"/>
     <axis xyz="1 0 0"/><dynamics damping="0.001" friction="0.0"/>
     <limit effort="80.0" velocity="120.0"/>
   </joint>
@@ -177,7 +187,7 @@
   <link name="wheel_front_frame_link">
     <visual>
       <origin xyz="0 -0.13 -0.05"/>
-      <geometry><mesh filename="${mesh_path}/wheel_front_frame.stl"/></geometry>
+      <geometry><mesh filename="${mesh_path}/wheel_front_frame3.stl"/></geometry>
       <material name="gray"><color rgba="0.5 0.5 0.5 1"/></material>
     </visual>
     <inertial>
@@ -188,7 +198,7 @@
 
   <joint name="wheel_front_frame_joint" type="fixed">
     <parent link="steering_link"/><child link="wheel_front_frame_link"/>
-    <origin xyz="-0.12 0.175 -0.0258"/>
+    <origin xyz="0 0.175 -0.0258"/>
   </joint>
 
   <!-- ===== Pillar ===== -->
@@ -206,7 +216,7 @@
 
   <joint name="pillar_joint" type="fixed">
     <parent link="base_link"/><child link="pillar_link"/>
-    <origin xyz="-0.4936 0.025 1.1917" rpy="0 0 1.57079632679"/>
+    <origin xyz="0.0015 0.025 1.1917" rpy="0 0 1.57079632679"/>
   </joint>
 
   <!-- ===== LiDAR head ===== -->
@@ -239,7 +249,7 @@
   <!-- ผูกปลั๊กอิน LiDAR -->
   <xacro:antbot_lidar_attach
     link="lidar_sensor_link"
-    topic="/scan"
+    topic="/scan_raw"
     frame_id="lidar_sensor_link"
     update_rate="15"
     visualize="true"
@@ -259,7 +269,7 @@
   <xacro:antbot_ultrasonic
     parent="base_link"
     frame="ultrasonic_front_link"
-    joint_xyz_offset="0.40 0.02 0.55"
+    joint_xyz_offset="0.85 0.02 0.55"
     joint_rpy_offset="0 0 1.57079632679"
     rpy_offset="0 0 0"               
     min_range="0.25"
@@ -285,7 +295,7 @@
 
   <joint name="omron_joint" type="fixed">
     <parent link="base_link"/><child link="omron_link"/>
-    <origin xyz="0.33 0.022 0.86134" rpy="0 0 1.57079632679" />
+    <origin xyz="0.83 0.020 0.86234" rpy="0 0 1.57079632679" />
   </joint>
 
   <!-- ===== ros2_control ===== -->

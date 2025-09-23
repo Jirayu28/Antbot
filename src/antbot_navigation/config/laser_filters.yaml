@@ -4,13 +4,24 @@ scan_filter_chain:
     params:
       min_angle: -3.14159
       max_angle:  3.14159
-      neighbors: 1
-      window: 1
+      neighbors: 2         # เดิม 1 ต่ำไป เพิ่มเป็น 2 ให้ตัดเงาสะท้อนได้เสถียรขึ้น
+      window: 2            # ขยายหน้าต่างตรวจจับเงาอีกนิด
 
   - name: range_clip
     type: laser_filters/LaserScanRangeFilter
     params:
-      lower_threshold: 0.15
-      upper_threshold: 7.8
-      lower_replacement_value: 0.0
-      upper_replacement_value: 0.0
+      lower_threshold: 0.18        # สูงกว่า min ของเซ็นเซอร์เล็กน้อย (0.15) กันโดนตัวรถ
+      upper_threshold: 5.0         # ตรงกับ range_max ของปลั๊กอิน
+      lower_replacement_value: 0.0 # ค่าต่ำกว่าตัดเป็น 0 (ให้ costmap เคลียร์)
+      upper_replacement_value: inf # ค่าสูงกว่าตัดเป็น inf (แปลว่า “ไม่มีสิ่งกีดขวาง”)
+
+  - name: self_filter
+    type: laser_filters/LaserScanBoxFilter
+    params:
+      box_frame: base_link
+      min_x: -0.30
+      max_x:  0.30
+      min_y: -0.25
+      max_y:  0.25
+      min_z: -0.10
+      max_z:  0.50

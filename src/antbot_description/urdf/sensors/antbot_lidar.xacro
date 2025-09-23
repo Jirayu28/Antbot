@@ -29,7 +29,7 @@
 
         <topic>${topic}</topic>
         <!-- กำหนด header.frame_id ให้ /scan -->
-        <gz_frame_id>${frame_id}</gz_frame_id>
+        
 
         <ray>
           <scan>
@@ -57,6 +57,14 @@
             <stddev>${noise_stddev}</stddev>
           </noise>
         </ray>
+         <!-- 🟢 เพิ่ม plugin นี้ -->
+        <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_gpu_laser.so">
+          <ros>
+            <namespace>/</namespace>
+            <remapping>scan:=/scan</remapping>
+          </ros>
+          <frame_name>${frame_id}</frame_name>
+        </plugin>
       </sensor>
     </gazebo>
   </xacro:macro>

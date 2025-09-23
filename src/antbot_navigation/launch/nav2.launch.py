@@ -4,7 +4,6 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-
 from ament_index_python.packages import get_package_share_directory
 import os
 
@@ -81,7 +80,8 @@ def generate_launch_description():
         executable='bt_navigator',
         name='bt_navigator',
         output='screen',
-        parameters=[params_file, {'default_bt_xml_filename': bt_xml}],
+        parameters=[params_file, {'default_nav_to_pose_bt_xml': bt_xml},
+            {'default_nav_through_poses_bt_xml': bt_xml}],
     )
 
     waypoint = Node(
@@ -109,9 +109,16 @@ def generate_launch_description():
             ],
         }],
     )
+    cmd_vel_converter = Node(
+        package='antbot_drive_controller',
+        executable='cmd_vel_to_stamped',
+        name='cmd_vel_to_stamped',
+        output='screen',
+    )
+
 
     return LaunchDescription([
         DeclareLaunchArgument('use_sim_time', default_value='true'),
         DeclareLaunchArgument('params_file',  default_value=default_params),
-        controller, planner, smoother, behavior, bt_nav, waypoint, lifecycle
+        controller, planner, smoother, behavior, bt_nav, waypoint, lifecycle, cmd_vel_converter,
     ])

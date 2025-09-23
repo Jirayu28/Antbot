@@ -25,8 +25,8 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='pakorn',
-    maintainer_email='pakorn.pkd@gmail.com',
+    maintainer='jirayu',
+    maintainer_email='jirayu.pkd@gmail.com',
     description='Teleop + mux + Twist->TwistStamped + LaserScan->Range + IMU relay for Antbot',
     entry_points={
         'console_scripts': [

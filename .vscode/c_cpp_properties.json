@@ -6,10 +6,10 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/home/pakorn/ros2_ws/install/mecanum_drive_controller/include/**",
+        "/home/jirayu/ros2_ws/install/mecanum_drive_controller/include/**",
         "/opt/ros/jazzy/include/**",
-        "/home/pakorn/antbot_ws/src/antbot_description/include/**",
-        "/home/pakorn/antbot_ws/src/antbot_drive_controller/include/**",
+        "/home/jirayu/antbot_ws/src/antbot_description/include/**",
+        "/home/jirayu/antbot_ws/src/antbot_drive_controller/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",

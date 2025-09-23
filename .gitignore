@@ -1,7 +1,14 @@
-# Ignore log files
-*.log
-
-log
-
-# Ignore temp folders
-temp/ 
+build/
+install/
+log/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+CTestConfiguration.ini
+colcon_command_prefix_build.sh
+*.xml.stamp
+*.json
+.vscode/
+*.swp
+.DS_Store

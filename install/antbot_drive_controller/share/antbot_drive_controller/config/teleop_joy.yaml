@@ -1,9 +1,0 @@
-teleop_twist_joy_node:
-  ros__parameters:
-    axis_linear: 1          # แท่งซ้าย ขึ้น/ลง
-    scale_linear: 1.0
-    scale_linear_turbo: 2.0
-    axis_angular: 3         # แท่งขวา ซ้าย/ขวา
-    scale_angular: 1.0
-    enable_button: 4        # LB = เปิดขับ
-    enable_turbo_button: 5  # RB = โหมดเร็ว

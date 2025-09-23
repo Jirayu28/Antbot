@@ -1,4 +1,0 @@
-[console_scripts]
-cmd_vel_to_stamped = antbot_drive_controller.cmd_vel_to_stamped:main
-imu_frame_relay = antbot_drive_controller.imu_frame_relay:main
-scan_to_range = antbot_drive_controller.scan_to_range:main

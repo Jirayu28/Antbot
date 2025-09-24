@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+
+  <BehaviorTree ID="MainTree">
+    <!-- ตามกฎ BT.CPP v4: ใต้ BehaviorTree ต้องมีลูกตรง ๆ แค่ 1 ตัว -->
+    <Sequence name="Root">
+      <!-- ตั้งค่า plugin ids -->
+      <SetBlackboard output_key="planner_id" value="SmacHybrid"/>
+      <SetBlackboard output_key="controller_id" value="FollowPath"/>
+      <SetBlackboard output_key="goal_checker_id" value="goal_checker"/>
+
+      <!-- ส่วนหลัก + รีคัฟเวอรี -->
+      <RecoveryNode number_of_retries="4">
+
+        <!-- เนวิเกตพร้อมรีแพลนไปด้วยแบบ pipeline -->
+        <PipelineSequence name="Navigate_With_Replanning">
+          <!-- วางแผนใหม่เป็นช่วง ๆ เพื่อไม่ช้ำ controller -->
+          <RateController hz="0.5">
+            <ComputePathToPose goal="{goal}" path="{path}" planner_id="{planner_id}"/>
+          </RateController>
+
+          <!-- ตามเส้นทางล่าสุด (จะไม่โดน halt ทุก ๆ ทีก่อนหน้า) -->
+          <FollowPath path="{path}"
+                      controller_id="{controller_id}"
+                      goal_checker_id="{goal_checker_id}"/>
+        </PipelineSequence>
+
+        <!-- ชุดรีคัฟเวอรี -->
+        <Sequence name="Do_Recovery">
+          <ClearEntireCostmap name="clear_local_costmap"
+                              service_name="/local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap name="clear_global_costmap"
+                              service_name="/global_costmap/clear_entirely_global_costmap"/>
+          <Spin spin_dist="1.57"/>
+          <Wait wait_duration="2"/>
+        </Sequence>
+      </RecoveryNode>
+    </Sequence>
+  </BehaviorTree>
+
+</root>

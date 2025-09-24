@@ -12,3 +12,6 @@ colcon_command_prefix_build.sh
 .vscode/
 *.swp
 .DS_Store
+# เพิ่มไฟล์กราฟ/รูปที่ gen ออกมาไม่ต้องเข้ากิต
+frames_*.gv
+frames_*.pdf

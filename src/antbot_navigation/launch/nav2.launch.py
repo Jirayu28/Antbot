@@ -74,14 +74,22 @@ def generate_launch_description():
         output='screen',
         parameters=[params_file],
     )
+    
+    ack_bt_xml = PathJoinSubstitution([
+        pkg_share, 'behavior_trees',
+        'navigate_w_replanning_and_recovery_ackermann.xml'
+    ])
 
     bt_nav = Node(
         package='nav2_bt_navigator',
         executable='bt_navigator',
         name='bt_navigator',
         output='screen',
-        parameters=[params_file, {'default_nav_to_pose_bt_xml': bt_xml},
-            {'default_nav_through_poses_bt_xml': bt_xml}],
+        parameters=[
+            params_file,
+            {'default_nav_to_pose_bt_xml': ack_bt_xml},
+            {'default_nav_through_poses_bt_xml': ack_bt_xml},
+        ],
     )
 
     waypoint = Node(
